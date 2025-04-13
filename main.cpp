@@ -140,6 +140,8 @@ class Bitfield {
     using T = bitfield_detail::MinimumType<Bits>;
 
 public:
+    Bitfield() = default;
+
     Bitfield &operator=(T value) {
         auto *src = reinterpret_cast<const uint8_t *>(&value);
         bitfield_detail::bitwise_memcpy_offset_dst(src, value_, Index, Bits);
